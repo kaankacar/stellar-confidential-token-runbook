@@ -109,7 +109,7 @@ function terminalHtml(lines, { title = '', highlight = null } = {}) {
     .dot.r{background:#e0624f}.dot.y{background:#e8b84d}.dot.g{background:#6fbf73}
     .title{margin-left:14px}
     .body{padding:18px 22px;font:17px/1.52 "SF Mono","JetBrains Mono",Menlo,monospace;color:#e6dfd0;white-space:pre-wrap;word-break:break-all}
-    .row{display:flex}.stamp{color:#7f776a;flex:0 0 190px}.text{flex:1}
+    .row{display:flex}.stamp{color:#7f776a;flex:0 0 236px;white-space:nowrap}.text{flex:1}
     .row.section .text{color:#f2c96b;font-weight:600}
     .row.hot .text{color:#9fe3a4;font-weight:600}
     .cursor{display:inline-block;width:10px;height:19px;background:#e6dfd0;vertical-align:-3px;animation:b 1s steps(2) infinite}
@@ -149,6 +149,24 @@ async function open(page, url) {
   await sleep(2500);
 }
 
+/** Chrome emits a screencast frame only on repaint; a 1px blinking dot keeps frames coming. */
+async function startHeartbeat(page) {
+  await page.evaluate(() => {
+    const dot = document.createElement('div');
+    dot.id = '__hb';
+    dot.style.cssText = 'position:fixed;left:0;bottom:0;width:2px;height:2px;background:#000;opacity:.02;z-index:99999';
+    document.body.appendChild(dot);
+    window.__hbTimer = setInterval(() => { dot.style.opacity = dot.style.opacity === '0.02' ? '0.03' : '0.02'; }, 100);
+  });
+}
+
+async function openDetails(page, index) {
+  await page.evaluate((i) => {
+    const d = document.querySelectorAll('details')[i];
+    if (d) d.open = true;
+  }, index);
+}
+
 async function slowScroll(page, px, ms) {
   const steps = Math.max(1, Math.round(ms / 50));
   for (let i = 0; i < steps; i += 1) {
@@ -162,6 +180,7 @@ async function record(page, file, fn) {
   const raw = `${file}.raw.webm`;
   const recorder = await page.screencast({ path: raw, fps: 30, overwrite: true });
   try {
+    await startHeartbeat(page);
     await fn();
   } finally {
     await recorder.stop();
@@ -241,6 +260,8 @@ const STILLS = [
     name: '08-gerald',
     run: async (page) => {
       await open(page, GERALD);
+      await openDetails(page, 1);
+      await sleep(800);
       await page.screenshot({ path: stillPath('08-gerald') });
     },
   },
@@ -294,9 +315,15 @@ const CLIPS = [
     run: async (page) => {
       await open(page, GERALD);
       await record(page, clipPath('clip-d-gerald'), async () => {
-        await sleep(1500);
-        await slowScroll(page, 1200, 5000);
-        await sleep(1500);
+        await sleep(2000);
+        await openDetails(page, 0);
+        await sleep(3000);
+        await slowScroll(page, 500, 2500);
+        await sleep(1000);
+        await openDetails(page, 1);
+        await sleep(3000);
+        await slowScroll(page, 800, 3000);
+        await sleep(2000);
       });
     },
   },
