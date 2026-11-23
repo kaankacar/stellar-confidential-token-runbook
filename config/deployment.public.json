@@ -1,0 +1,19 @@
+{
+  "name": "public",
+  "network": "testnet",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "friendbotUrl": "https://friendbot.stellar.org",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "contracts": {
+    "token": "CA642WUED6PACAQGVKSXND3DRSXGR7DP2L7TRHZORPWEPNRVGGN4L4ED",
+    "verifier": "CAN45PFA5CVUCU3JB77IE2JNWNTRCDWMRNG55U452L3N2IOCAGOLTUVQ",
+    "auditor": "CBQZRK72Y6KJ5DR4CUHKLHMHIKBMOZNSYTWHRUQPEXA35PRCBMSPBZTW",
+    "factory": "CAWPCXMW47UET5Z4N5T44PRDGAY6CZVP2O2JDEBL7YWEUHJGQ2BR4L6R",
+    "underlying": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+  },
+  "auditorId": 0,
+  "deployedAtLedger": 5371973,
+  "deployedBy": "GCTYRV6A3EIQS46FEFXETISQNVYSACSSL3CEMLV5ECMA6K46GPDTH662",
+  "source": "README of brozorec/stellar-confidential-token-demo at 626d00f (2026-10-25): deployed on stellar-confidential 0.8.0, ledger 5371973"
+}

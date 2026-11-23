@@ -1,0 +1,9 @@
+# pnpm 11 reads build permissions here, not from package.json "pnpm.onlyBuiltDependencies".
+# The SDK is a git dependency whose "prepare" script compiles dist/ on install, and for a
+# git-hosted package pnpm wants the key to carry the exact tarball URL it fetched.
+# esbuild (tsx) and msgpackr-extract (bb.js) have harmless postinstall scripts; without
+# this list `pnpm exec` refuses to run at all ("Ignored build scripts").
+allowBuilds:
+  stellar-confidential-token-sdk@https://codeload.github.com/brozorec/stellar-confidential-token-sdk/tar.gz/aad17069714713bcb36fa376d0f2a87743e8e2a7: true
+  esbuild: true
+  msgpackr-extract: true
