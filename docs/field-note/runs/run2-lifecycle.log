@@ -1,0 +1,67 @@
+2026-11-23T17:56:52Z  testnet, deployment "public": token CA642WUED6PACAQGVKSXND3DRSXGR7DP2L7TRHZORPWEPNRVGGN4L4ED, auditor id 0; amounts deposit 100.0000000, transfer 42.5000000, withdraw 10.0000000 XLM; starting at step "register"
+2026-11-23T17:56:52Z
+2026-11-23T17:56:52Z  == accounts and keys
+2026-11-23T17:56:57Z  alice: GDEETEKY4HF2O6T2PGPMKA6XJKPAVKGQKSYSNK46SC7SSLP3CD77CHRA created, funded by friendbot, stored in /Users/kaankacar/ctfn/state/accounts.public.json
+2026-11-23T17:57:03Z  bob: GDSO4MAKHUUDBY7MNL4TIJ3QF4E4SMGWCABARWDU63I3QV6VDJRNCLIU created, funded by friendbot, stored in /Users/kaankacar/ctfn/state/accounts.public.json
+2026-11-23T17:57:03Z  alice GDEETEKY4HF2O6T2PGPMKA6XJKPAVKGQKSYSNK46SC7SSLP3CD77CHRA: confidential keys from a SEP-53 signature by the account key, j=0, Y 0222ff3690…6e9c3d, PVK 02258a40c8…34163f; derived twice, identical (recoverable)
+2026-11-23T17:57:03Z    https://stellar.expert/explorer/testnet/account/GDEETEKY4HF2O6T2PGPMKA6XJKPAVKGQKSYSNK46SC7SSLP3CD77CHRA
+2026-11-23T17:57:03Z  bob GDSO4MAKHUUDBY7MNL4TIJ3QF4E4SMGWCABARWDU63I3QV6VDJRNCLIU: confidential keys from a SEP-53 signature by the account key, j=0, Y 021ec21736…f4c12e, PVK 0226f06045…6d2587; derived twice, identical (recoverable)
+2026-11-23T17:57:03Z    https://stellar.expert/explorer/testnet/account/GDSO4MAKHUUDBY7MNL4TIJ3QF4E4SMGWCABARWDU63I3QV6VDJRNCLIU
+2026-11-23T17:57:04Z  auditor id 0 key 02088b898c…e68b1c; both accounts bind to it at registration, for good
+2026-11-23T17:57:04Z
+2026-11-23T17:57:04Z  == RPC window check (read-only)
+2026-11-23T17:57:04Z  fetchEvents from the deployment ledger 5371973 fails: [object Object]
+2026-11-23T17:57:04Z    the demo e2e starts every StateEngine at deployedAtLedger; a month after deployment the RPC refuses that. This runbook starts each engine at the ledger the account registered in.
+2026-11-23T17:57:04Z
+2026-11-23T17:57:04Z  == step 1, register (proof)
+2026-11-23T17:57:05Z  register proof: 14592 bytes, 6 public inputs, built in 477 ms
+2026-11-23T17:57:08Z  alice register: tx ba6843a93666ba71c440b642a7cd290c22ca6f952e2abde3fc625372fbc280a0, ledger 5886597, closed 2026-11-23T17:57:07Z, fee 27681655 stroops (2.7681655 XLM), latency call to close 3.5 s
+2026-11-23T17:57:08Z    https://stellar.expert/explorer/testnet/tx/ba6843a93666ba71c440b642a7cd290c22ca6f952e2abde3fc625372fbc280a0
+2026-11-23T17:57:09Z  register proof: 14592 bytes, 6 public inputs, built in 335 ms
+2026-11-23T17:57:14Z  bob register: tx 077a3e6a707cfe4da410b8b05d6f9996da986a61fee1630290b95cde45fccbcb, ledger 5886598, closed 2026-11-23T17:57:12Z, fee 154334 stroops (0.0154334 XLM), latency call to close 5.4 s
+2026-11-23T17:57:14Z    https://stellar.expert/explorer/testnet/tx/077a3e6a707cfe4da410b8b05d6f9996da986a61fee1630290b95cde45fccbcb
+2026-11-23T17:57:15Z  alice on chain: auditor id 0, spendable commitment 0200000000…000000, receiving commitment 0200000000…000000 (commitments, not amounts)
+2026-11-23T17:57:15Z
+2026-11-23T17:57:15Z  == step 2, deposit (no proof, amount public)
+2026-11-23T17:57:18Z  alice deposit 100.0000000 XLM: tx ff47944623867ed9e0f366d5b0d10771c4f4b1962bc324b21f16d5712c1932bb, ledger 5886599, closed 2026-11-23T17:57:17Z, fee 238975 stroops (0.0238975 XLM), latency call to close 2.7 s
+2026-11-23T17:57:18Z    https://stellar.expert/explorer/testnet/tx/ff47944623867ed9e0f366d5b0d10771c4f4b1962bc324b21f16d5712c1932bb
+2026-11-23T17:57:18Z  alice public XLM: 9997.2318345 before, 9897.2079370 after (-100.0238975: the deposit plus the fee, both public)
+2026-11-23T17:57:20Z  alice after deposit: spendable 0.0000000 XLM, receiving 100.0000000 XLM, synced through ledger 5886599 (openings re-committed and checked against the chain)
+2026-11-23T17:57:20Z
+2026-11-23T17:57:20Z  == step 3, merge alice (no proof)
+2026-11-23T17:57:22Z  alice merge: tx a3241134d47b6e14c342f65ff7bffb6d80201959be3c739ea36d4126adee3ba1, ledger 5886600, closed 2026-11-23T17:57:22Z, fee 4120 stroops (0.0004120 XLM), latency call to close 2.8 s
+2026-11-23T17:57:22Z    https://stellar.expert/explorer/testnet/tx/a3241134d47b6e14c342f65ff7bffb6d80201959be3c739ea36d4126adee3ba1
+2026-11-23T17:57:23Z  alice after merge: spendable 100.0000000 XLM, receiving 0.0000000 XLM, synced through ledger 5886600 (openings re-committed and checked against the chain)
+2026-11-23T17:57:23Z
+2026-11-23T17:57:23Z  == step 4, confidential transfer alice to bob (proof, amount hidden)
+2026-11-23T17:57:23Z  alice proves against spendable 100.0000000 XLM (the opening the engine re-checked against the chain just now)
+2026-11-23T17:57:24Z  transfer proof: 14592 bytes, 25 public inputs, built in 765 ms
+2026-11-23T17:57:30Z  alice transfer 42.5000000 XLM to bob: tx 4882e1e2c5c2105aadf6c88f83d7275f5530c61ce05986a38d5b71b03c3d4b8d, ledger 5886601, closed 2026-11-23T17:57:27Z, fee 293747 stroops (0.0293747 XLM), latency call to close 5.6 s
+2026-11-23T17:57:30Z    https://stellar.expert/explorer/testnet/tx/4882e1e2c5c2105aadf6c88f83d7275f5530c61ce05986a38d5b71b03c3d4b8d
+2026-11-23T17:57:30Z  bob signed nothing. The explorer shows alice as the source and the token contract as the target; bob is an argument inside the call.
+2026-11-23T17:57:30Z  alice after transfer: spendable 57.5000000 XLM, receiving 0.0000000 XLM, synced through ledger 5886601 (openings re-committed and checked against the chain)
+2026-11-23T17:57:31Z  bob after transfer: spendable 0.0000000 XLM, receiving 42.5000000 XLM, synced through ledger 5886601 (openings re-committed and checked against the chain)
+2026-11-23T17:57:31Z  bob's receiving amount above came from decrypting the transfer event with his viewing key; the chain holds only the commitment
+2026-11-23T17:57:31Z
+2026-11-23T17:57:31Z  == step 5, merge bob (no proof)
+2026-11-23T17:57:38Z  bob merge: tx 395e130f8d5c356b66b1250ee710cd4aaef779b179e9cff091195b2e5542a346, ledger 5886603, closed 2026-11-23T17:57:37Z, fee 4120 stroops (0.0004120 XLM), latency call to close 7.1 s
+2026-11-23T17:57:38Z    https://stellar.expert/explorer/testnet/tx/395e130f8d5c356b66b1250ee710cd4aaef779b179e9cff091195b2e5542a346
+2026-11-23T17:57:38Z  bob after merge: spendable 42.5000000 XLM, receiving 0.0000000 XLM, synced through ledger 5886603 (openings re-committed and checked against the chain)
+2026-11-23T17:57:38Z
+2026-11-23T17:57:38Z  == step 6, withdraw bob (proof, amount public again)
+2026-11-23T17:57:39Z  bob proves against spendable 42.5000000 XLM
+2026-11-23T17:57:40Z  withdraw proof: 14592 bytes, 16 public inputs, built in 637 ms
+2026-11-23T17:57:43Z  bob withdraw 10.0000000 XLM: tx a89a1307666a3d43f0a32f4edce8cf6bfdcdd2468d6d5e2cb9b21c66cb17e78d, ledger 5886604, closed 2026-11-23T17:57:42Z, fee 102077 stroops (0.0102077 XLM), latency call to close 3.4 s
+2026-11-23T17:57:43Z    https://stellar.expert/explorer/testnet/tx/a89a1307666a3d43f0a32f4edce8cf6bfdcdd2468d6d5e2cb9b21c66cb17e78d
+2026-11-23T17:57:44Z  bob public XLM: 9999.9841546 before, 10009.9739469 after (9.9897923 = withdraw 10.0000000 minus the fee 0.0102077)
+2026-11-23T17:57:45Z  bob after withdraw: spendable 32.5000000 XLM, receiving 0.0000000 XLM, synced through ledger 5886604 (openings re-committed and checked against the chain)
+2026-11-23T17:57:45Z
+2026-11-23T17:57:45Z  == summary
+2026-11-23T17:57:45Z  register-alice  ledger 5886597  fee 2.7681655 XLM  ba6843a93666ba71c440b642a7cd290c22ca6f952e2abde3fc625372fbc280a0
+2026-11-23T17:57:45Z  register-bob    ledger 5886598  fee 0.0154334 XLM  077a3e6a707cfe4da410b8b05d6f9996da986a61fee1630290b95cde45fccbcb
+2026-11-23T17:57:45Z  deposit         ledger 5886599  fee 0.0238975 XLM  ff47944623867ed9e0f366d5b0d10771c4f4b1962bc324b21f16d5712c1932bb
+2026-11-23T17:57:45Z  merge-alice     ledger 5886600  fee 0.0004120 XLM  a3241134d47b6e14c342f65ff7bffb6d80201959be3c739ea36d4126adee3ba1
+2026-11-23T17:57:45Z  transfer        ledger 5886601  fee 0.0293747 XLM  4882e1e2c5c2105aadf6c88f83d7275f5530c61ce05986a38d5b71b03c3d4b8d
+2026-11-23T17:57:45Z  merge-bob       ledger 5886603  fee 0.0004120 XLM  395e130f8d5c356b66b1250ee710cd4aaef779b179e9cff091195b2e5542a346
+2026-11-23T17:57:45Z  withdraw        ledger 5886604  fee 0.0102077 XLM  a89a1307666a3d43f0a32f4edce8cf6bfdcdd2468d6d5e2cb9b21c66cb17e78d
+2026-11-23T17:57:45Z  7 transactions, 2.8479028 XLM in fees, run took 53.5 s

@@ -58,7 +58,7 @@ docs/field-note/runs/*.log  card/  shots.mjs  typer.html  shots/  clips/  assemb
 ## Scripts (`pnpm <name> -- --flag`; every script takes `--log <path>` and `--deployment public|own`)
 - `recon`: read-only. Contract meta and interface of the public 0.8.0 token and Bri's preview token; `get_verification_key` for the six circuit types compared with SHA-256 of the SDK's bundled `vks/*.vk.bin`; auditor key id 0; RPC `getHealth` oldest ledger vs the deployment ledger; crates.io version; SDK version matrix; `is_registered` for Alice.
 - `lifecycle`: register Alice, register Bob, deposit 100 XLM Alice to Alice, merge Alice, confidential_transfer Alice to Bob 42.5 XLM, merge Bob, withdraw Bob to Bob 10 XLM. Recoverable keys, `JsonFileStore` under `state/`, `StateEngine.sync()` after every step, proof time and size per proof, tx hash + ledger + fee + latency per step. `--from <step>` resumes.
-- `audit`: `fetchEvents` from the register ledger; the transfer event's field names (no amount); `auditTransfer` and `auditWithdraw` with the auditor secret; Horizon XLM balances for Bob before and after the withdraw.
+- `auditor` (`pnpm audit` is a pnpm built-in): `fetchEvents` from the register ledger; the transfer event's field names (no amount); `auditTransfer` and `auditWithdraw` with the auditor secret; Horizon XLM balances for Bob before and after the withdraw.
 
 ## Docs and hand-in (owner: Kaan's session)
 - Write-up `docs/field-note/confidential-tokens-field-note.md`: Attribution; 1 What we built; 2 How it went (2a the game, 2b the six steps on v0.8.0); 3 The mental model that made it click; 4 Friction log; 5 Where we think this goes; 6 Try it yourself. Short sentences, no em dashes, ISO Z timestamps, only numbers that carry a finding.

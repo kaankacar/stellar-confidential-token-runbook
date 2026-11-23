@@ -55,7 +55,16 @@ export function fail(logger: Logger, message: string): never {
 
 /** The message of an Error, or the string form of anything else. */
 export function errorMessage(error: unknown): string {
-  return error instanceof Error ? error.message : String(error);
+  if (error instanceof Error) return error.message;
+  if (typeof error === 'object' && error !== null) {
+    // The SDK rethrows the RPC's JSON-RPC error object as is; String() would print [object Object].
+    try {
+      return JSON.stringify(error);
+    } catch {
+      return String(error);
+    }
+  }
+  return String(error);
 }
 
 /**
