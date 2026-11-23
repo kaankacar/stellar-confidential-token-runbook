@@ -137,12 +137,12 @@ async function main(): Promise<void> {
   logger.section('auditor key');
   const kAud = await client.auditorKey(dep.auditorId);
   logger.log(`auditor id ${dep.auditorId} on ${dep.contracts.auditor}: K_aud ${pointHex(kAud)}`);
-  const secretHex = process.env['AUDITOR_SECRET_HEX'];
+  const secretHex = process.env[dep.name === 'own' ? 'AUDITOR_SECRET_HEX_OWN' : 'AUDITOR_SECRET_HEX'];
   if (secretHex) {
     const derived = auditorPublicKey(fromHex(secretHex));
     logger.log(`AUDITOR_SECRET_HEX from .env derives ${pointHex(derived)}: ${derived.equals(kAud) ? 'matches the registered key' : 'DOES NOT match the registered key'}`);
   } else {
-    logger.log('AUDITOR_SECRET_HEX not set; run 3 needs it');
+    logger.log(`${dep.name === 'own' ? 'AUDITOR_SECRET_HEX_OWN' : 'AUDITOR_SECRET_HEX'} not set; run 3 needs it`);
   }
 
   logger.section('RPC retention window');

@@ -1,0 +1,45 @@
+2026-11-23T18:09:13Z  testnet, deployment "own": token CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS; alice GAUQODGGCKN4UNOTKIP54JJQ4M3XPTQQU6RUO7PHH6WEJNWUKLMOCJNW, bob GBIRQMOH4GGMGO56F4QD2HXT7SVISDTLS7RQNYDCCEWIS46AIZQIGRQH; reading events from ledger 5886703
+2026-11-23T18:09:13Z
+2026-11-23T18:09:13Z  == events the token emitted for these two accounts
+2026-11-23T18:09:14Z  7 events from our 7 transactions, 2 page(s)
+2026-11-23T18:09:14Z  register  ledger 5886703 tx 6232f373d85c… fields [ref, account, auditorId]
+2026-11-23T18:09:14Z  register  ledger 5886704 tx 3c60ab202b8d… fields [ref, account, auditorId]
+2026-11-23T18:09:14Z  deposit   ledger 5886705 tx ac3c48ae89b9… fields [ref, from, to, amount] amount 100.0000000 XLM
+2026-11-23T18:09:14Z  merge     ledger 5886706 tx e25643e57bb0… fields [ref, account]
+2026-11-23T18:09:14Z  transfer  ledger 5886708 tx 9ea988fdc330… fields [ref, from, to, rE, vTilde, sigma, bTilde, vAudR, rAudR, vAudS, bAudS, rAudS]
+2026-11-23T18:09:14Z  merge     ledger 5886709 tx 25fe6bf6cbb8… fields [ref, account]
+2026-11-23T18:09:14Z  withdraw  ledger 5886711 tx 882b99286d10… fields [ref, from, to, amount, rE, sigma, bTilde, bAudS, rAudS] amount 10.0000000 XLM
+2026-11-23T18:09:14Z
+2026-11-23T18:09:14Z  == what the public sees in the transfer event
+2026-11-23T18:09:14Z  from GAUQODGGCKN4UNOTKIP54JJQ4M3XPTQQU6RUO7PHH6WEJNWUKLMOCJNW
+2026-11-23T18:09:14Z  to   GBIRQMOH4GGMGO56F4QD2HXT7SVISDTLS7RQNYDCCEWIS46AIZQIGRQH
+2026-11-23T18:09:14Z  rE 0301a7c048…40cfd9 (ephemeral point), vTilde b0d197db81fb…, bTilde 2f9f8ced23d8…, sigma 1bdd6db0239c…, vAudR/rAudR/vAudS/bAudS/rAudS: five more field elements
+2026-11-23T18:09:14Z  no "amount" field. The parties and the time are public; the amount and both balances are field elements that only the recipient, the sender and the auditor can open.
+2026-11-23T18:09:14Z    https://stellar.expert/explorer/testnet/tx/9ea988fdc3308161528a6b4644934dcffd498cfeaf74413d5a3c4a89640fc264
+2026-11-23T18:09:14Z
+2026-11-23T18:09:14Z  == the auditor opens the transfer
+2026-11-23T18:09:14Z  auditor id 0: registered key 0315f86c3a…94cbb0, key from the secret 0315f86c3a…94cbb0, same
+2026-11-23T18:09:14Z  auditTransfer in 11 ms: amount 42.5000000 XLM, sender balance after 57.5000000 XLM, channelsAgree true; expected amount 42.5000000 XLM: match
+2026-11-23T18:09:14Z  both auditor copies decrypted to the same amount: the recipient channel and the sender channel were made from one ephemeral scalar, which the circuit enforces
+2026-11-23T18:09:14Z  a random key instead: amount 1c882164ef266f8e… (not a number anyone can use), channelsAgree false
+2026-11-23T18:09:14Z  auditWithdraw: sender balance after the withdraw 32.5000000 XLM; expected 32.5000000 XLM: match; the withdraw amount itself is public: 10.0000000 XLM
+2026-11-23T18:09:14Z
+2026-11-23T18:09:14Z  == the recipient's explorer page
+2026-11-23T18:09:15Z  Horizon lists 4 transactions for bob: a0605aae… (ledger 5886701), 3c60ab20… (ledger 5886704), 25fe6bf6… (ledger 5886709), 882b9928… (ledger 5886711)
+2026-11-23T18:09:15Z  the transfer 9ea988fd… that paid bob 42.5000000 XLM is NOT among them: bob was an argument of alice's contract call, not a source or a signer. His page shows activity only when he merges or withdraws.
+2026-11-23T18:09:15Z    https://stellar.expert/explorer/testnet/account/GBIRQMOH4GGMGO56F4QD2HXT7SVISDTLS7RQNYDCCEWIS46AIZQIGRQH
+2026-11-23T18:09:15Z  transfer tx operation: invoke_host_function, HostFunctionTypeHostFunctionTypeInvokeContract, parameter types [Address, Sym, Address, Address, Bytes]
+2026-11-23T18:09:15Z
+2026-11-23T18:09:15Z  == what each transaction paid for
+2026-11-23T18:09:15Z  register-alice  fee 0.0209278 XLM: resource fee 0.0237105 XLM, 86511996 instructions, footprint 7 read-only + 1 read-write entries, write 568 bytes, ledger entry changes {"Created":2,"State":1,"Updated":1}
+2026-11-23T18:09:16Z  register-bob    fee 0.0154334 XLM: resource fee 0.0173921 XLM, 86503124 instructions, footprint 7 read-only + 1 read-write entries, write 568 bytes, ledger entry changes {"Created":2}
+2026-11-23T18:09:16Z  deposit         fee 0.0303925 XLM: resource fee 0.0352433 XLM, 12775727 instructions, footprint 3 read-only + 3 read-write entries, write 936 bytes, ledger entry changes {"Created":2,"State":3,"Updated":3}
+2026-11-23T18:09:16Z  merge-alice     fee 0.0004120 XLM: resource fee 0.0008870 XLM, 946158 instructions, footprint 2 read-only + 1 read-write entries, write 568 bytes, ledger entry changes {"State":1,"Updated":1}
+2026-11-23T18:09:16Z  transfer        fee 0.0293741 XLM: resource fee 0.0333732 XLM, 89323299 instructions, footprint 7 read-only + 2 read-write entries, write 1136 bytes, ledger entry changes {"State":3,"Updated":3}
+2026-11-23T18:09:16Z  merge-bob       fee 0.0004120 XLM: resource fee 0.0008870 XLM, 946158 instructions, footprint 2 read-only + 1 read-write entries, write 568 bytes, ledger entry changes {"State":1,"Updated":1}
+2026-11-23T18:09:17Z  withdraw        fee 0.0102084 XLM: resource fee 0.0113171 XLM, 87640447 instructions, footprint 8 read-only + 3 read-write entries, write 936 bytes, ledger entry changes {"State":3,"Updated":3}
+2026-11-23T18:09:17Z  no archived entries were restored in this run: every entry this deployment touches is inside its TTL.
+2026-11-23T18:09:17Z
+2026-11-23T18:09:17Z  == public balances now
+2026-11-23T18:09:17Z  alice 9899.9188936 XLM, bob 10009.9739462 XLM on their public accounts; inside the pool alice holds 57.5000000 and bob 32.5000000 XLM, and only they and the auditor know it
+2026-11-23T18:09:17Z  audit done in 3.7 s; no transaction was sent

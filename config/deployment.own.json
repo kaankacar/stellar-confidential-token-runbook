@@ -1,0 +1,19 @@
+{
+  "name": "own",
+  "network": "testnet",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "friendbotUrl": "https://friendbot.stellar.org",
+  "networkPassphrase": "Test SDF Network ; September 2015",
+  "contracts": {
+    "token": "CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS",
+    "verifier": "CAZQI3UKIECWONHSAYQREWQOFBFRW4N6VKGAWL7XL3B7OCDWTBKLQ2HF",
+    "auditor": "CBI77HZ4CZUZDB5AOJYNLH46TJE74LIVXCSSFOO5PIE5IXHACBP4U7LD",
+    "factory": "CC3LTF3BVVO35MSUDPIUIEADCAGU7Q6CKDTPUTCVNO2KVE2BBDG4XMSR",
+    "underlying": "CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC"
+  },
+  "auditorId": 0,
+  "deployedAtLedger": 5886679,
+  "deployedBy": "GBMFDPQRABGVX65LKUTCQNJWQXGX76RVKORB6R2MXO3DDSNUXDIR52BH",
+  "source": "run 1 on 2026-11-23: brozorec/stellar-confidential-token-demo at 626d00f, pnpm build:contracts + pnpm deploy:contracts with stellar CLI 30.0.1 (deployer identity ctfn-deployer); protocol stellar-confidential 0.8.0"
+}

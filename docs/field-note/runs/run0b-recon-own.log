@@ -1,0 +1,39 @@
+2026-11-23T18:05:22Z  testnet, deployment "own": token CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS, verifier CAZQI3UKIECWONHSAYQREWQOFBFRW4N6VKGAWL7XL3B7OCDWTBKLQ2HF, auditor CBI77HZ4CZUZDB5AOJYNLH46TJE74LIVXCSSFOO5PIE5IXHACBP4U7LD, deployed at ledger 5886679
+2026-11-23T18:05:22Z    https://stellar.expert/explorer/testnet/contract/CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS
+2026-11-23T18:05:22Z  stellar CLI: stellar 26.0.0 (60f7458e7ecffddf2f2d91dc6d0d2db4fab03ecc); node v24.15.0
+2026-11-23T18:05:22Z
+2026-11-23T18:05:22Z  == release and SDK
+2026-11-23T18:05:22Z  SDK 0.3.0 implements stellar-confidential 0.8.0 (v0.8.0, ddc327e); nargo 1.0.0-beta.11, bb.js 0.87.0, noir_js 1.0.0-beta.11, on-chain verifier ultrahonk_soroban_verifier 0.1.0, domain separators sequential
+2026-11-23T18:05:23Z  crates.io stellar-confidential: max 0.8.0, published 2026-10-20T17:02:39.328321Z; the SDK matches: true
+2026-11-23T18:05:23Z
+2026-11-23T18:05:23Z  == contract metadata: stable 0.8.0 token vs the July preview token the game uses
+2026-11-23T18:05:25Z  0.8.0 token CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS: soroban-sdk 28.0.0, built with CLI 30.0.1, 11 functions (2.1 s)
+2026-11-23T18:05:25Z    confidential_balance, confidential_transfer, confidential_transfer_from, deposit, get_spender_delegation, is_spender, merge, register, revoke_spender, set_spender, withdraw
+2026-11-23T18:05:27Z  game token (preview) CCLDBRA5UVX6RMXSN44FMLK6RK4XMQ3XELL4TZC6XPL4D2JPPQNI4VSK: soroban-sdk 26.1.0, built with CLI 26.1.0, 11 functions (2.1 s)
+2026-11-23T18:05:27Z    confidential_balance, confidential_transfer, confidential_transfer_from, deposit, get_spender_delegation, is_spender, merge, register, revoke_spender, set_spender, withdraw
+2026-11-23T18:05:29Z  interface diff: only in 0.8.0 [none], only in preview [none]
+2026-11-23T18:05:32Z  verifier registries: 0.8.0 CAZQI3UKIECWONHSAYQREWQOFBFRW4N6VKGAWL7XL3B7OCDWTBKLQ2HF soroban-sdk 28.0.0; preview CDCET36PIS44DWJM5UQSSI4ZHGRDSBIIQW4G4ALPYK3Y6FEQGY5ZWFXL soroban-sdk 26.1.0
+2026-11-23T18:05:32Z
+2026-11-23T18:05:32Z  == verification keys: on-chain registry vs the SDK bundle
+2026-11-23T18:05:32Z  Register        type   0  bundle 1760 bytes sha256 f994f89b761f… (manifest agrees)  on-chain 1760 bytes in 617 ms sha256 f994f89b761f…  MATCH
+2026-11-23T18:05:33Z  Withdraw        type   1  bundle 1760 bytes sha256 9af904154ad8… (manifest agrees)  on-chain 1760 bytes in 424 ms sha256 9af904154ad8…  MATCH
+2026-11-23T18:05:33Z  Transfer        type   2  bundle 1760 bytes sha256 cd77164631a3… (manifest agrees)  on-chain 1760 bytes in 541 ms sha256 cd77164631a3…  MATCH
+2026-11-23T18:05:34Z  SpenderTransfer type   3  bundle 1760 bytes sha256 c979e925ba26… (manifest agrees)  on-chain 1760 bytes in 416 ms sha256 c979e925ba26…  MATCH
+2026-11-23T18:05:34Z  SetSpender      type   4  bundle 1760 bytes sha256 8e5fc7db817e… (manifest agrees)  on-chain 1760 bytes in 399 ms sha256 8e5fc7db817e…  MATCH
+2026-11-23T18:05:34Z  Clawback        type 100  bundle 1760 bytes sha256 665eb9cf680c… (manifest agrees)  on-chain 1760 bytes in 314 ms sha256 665eb9cf680c…  MATCH
+2026-11-23T18:05:34Z  6 of 6 registered keys match the bundle. The SDK does not check this before proving (its README lists the gap); a mismatch shows up only as an on-chain rejection.
+2026-11-23T18:05:34Z
+2026-11-23T18:05:34Z  == auditor key
+2026-11-23T18:05:35Z  auditor id 0 on CBI77HZ4CZUZDB5AOJYNLH46TJE74LIVXCSSFOO5PIE5IXHACBP4U7LD: K_aud 0315f86c3a…94cbb0
+2026-11-23T18:05:35Z  AUDITOR_SECRET_HEX from .env derives 0315f86c3a…94cbb0: matches the registered key
+2026-11-23T18:05:35Z
+2026-11-23T18:05:35Z  == RPC retention window
+2026-11-23T18:05:35Z  getHealth: oldest ledger 5765739, latest 5886698, retention window 120960 ledgers (120959 served, about 7.7 days at 5.5 s); latestLedger() 5886698
+2026-11-23T18:05:35Z  deployment ledger 5886679 is inside the window
+2026-11-23T18:05:35Z
+2026-11-23T18:05:35Z  == accounts
+2026-11-23T18:05:35Z  alice: no key yet; run 2 creates and funds one by friendbot
+2026-11-23T18:05:35Z  bob: no key yet; run 2 creates and funds one by friendbot
+2026-11-23T18:05:35Z
+2026-11-23T18:05:35Z  == summary
+2026-11-23T18:05:35Z  recon done in 12.7 s; no transaction was sent

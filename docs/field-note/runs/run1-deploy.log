@@ -1,0 +1,211 @@
+2026-11-23T18:02:46Z  == run 1, own 0.8.0 deployment (CLI output lines are indented and carry no stamp of their own) from brozorec/stellar-confidential-token-demo at 626d00f, stellar CLI 30.0.1
+2026-11-23T18:00:11Z  == pnpm build:contracts (stellar contract build, CLI 30.0.1 from the release tarball, system CLI 26.0.0 untouched)
+    ==> Building contracts with 'stellar contract build'
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=verifier/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+        Updating crates.io index
+     Downloading crates ...
+      Downloaded stellar-access v0.8.0
+      Downloaded stellar-macros v0.8.0
+      Downloaded soroban-spec-rust v28.0.0
+      Downloaded soroban-ledger-snapshot v28.0.0
+      Downloaded soroban-env-macros v28.0.2
+      Downloaded ultrahonk_soroban_verifier v0.1.0
+      Downloaded soroban-env-common v28.0.2
+      Downloaded soroban-builtin-sdk-macros v28.0.2
+      Downloaded soroban-sdk-macros v28.0.0
+      Downloaded soroban-spec v28.0.0
+      Downloaded soroban-env-guest v28.0.2
+      Downloaded stellar-contract-utils v0.8.0
+      Downloaded soroban-poseidon v28.0.0
+      Downloaded soroban-sdk v28.0.0
+      Downloaded stellar-confidential v0.8.0
+      Downloaded soroban-env-host v28.0.2
+       Compiling proc-macro2 v1.0.107
+       Compiling quote v1.0.47
+       Compiling unicode-ident v1.0.27
+       Compiling serde_core v1.0.229
+       Compiling zmij v1.0.23
+       Compiling serde v1.0.229
+       Compiling serde_json v1.0.154
+       Compiling itoa v1.0.18
+       Compiling memchr v2.8.3
+       Compiling strsim v0.11.1
+       Compiling ident_case v1.0.1
+       Compiling version_check v0.9.5
+       Compiling autocfg v1.5.1
+       Compiling typenum v1.20.1
+       Compiling libc v0.2.191
+       Compiling schemars v0.8.22
+       Compiling dyn-clone v1.0.20
+       Compiling cfg-if v1.0.5
+       Compiling data-encoding v2.11.1
+       Compiling generic-array v0.14.9
+       Compiling escape-bytes v0.1.1
+       Compiling ethnum v1.5.3
+       Compiling num-traits v0.2.19
+       Compiling semver v1.0.28
+       Compiling either v1.19.0
+       Compiling equivalent v1.0.3
+       Compiling thiserror v1.0.69
+       Compiling hashbrown v0.17.1
+       Compiling itertools v0.13.0
+       Compiling indexmap v2.14.2
+       Compiling prettyplease v0.2.37
+       Compiling fnv v1.0.7
+       Compiling wasmparser v0.116.1
+       Compiling heapless v0.8.0
+       Compiling byteorder v1.5.0
+       Compiling base64 v0.22.1
+       Compiling hash32 v0.3.1
+       Compiling rustc_version v0.4.1
+       Compiling static_assertions v1.1.0
+       Compiling stable_deref_trait v1.2.1
+       Compiling heck v0.5.0
+       Compiling crypto-common v0.1.6
+       Compiling block-buffer v0.10.4
+       Compiling cpufeatures v0.2.17
+       Compiling num-integer v0.1.47
+       Compiling digest v0.10.7
+       Compiling syn v3.0.9
+       Compiling syn v2.0.119
+       Compiling sha2 v0.10.9
+       Compiling num-bigint v0.4.8
+       Compiling darling_core v0.20.11
+       Compiling macro-string v0.1.4
+       Compiling darling_core v0.24.1
+       Compiling cfg_eval v0.1.2
+       Compiling thiserror-impl v1.0.69
+       Compiling num-derive v0.4.2
+       Compiling visibility v0.1.1
+       Compiling bytes-lit v0.0.6
+       Compiling stellar-macros v0.8.0
+       Compiling serde_derive v1.0.229
+       Compiling darling_macro v0.20.11
+       Compiling darling_macro v0.24.1
+       Compiling darling v0.20.11
+       Compiling darling v0.24.1
+       Compiling serde_with_macros v3.24.0
+       Compiling crate-git-revision v0.0.9
+       Compiling crate-git-revision v0.0.6
+       Compiling hex v0.4.3
+       Compiling stellar-strkey v0.0.13
+       Compiling stellar-strkey v0.0.16
+       Compiling stellar-xdr v28.0.0
+       Compiling soroban-env-common v28.0.2
+       Compiling soroban-sdk v28.0.0
+       Compiling serde_with v3.24.0
+       Compiling soroban-spec v28.0.0
+       Compiling soroban-spec-rust v28.0.0
+       Compiling soroban-env-macros v28.0.2
+       Compiling soroban-env-guest v28.0.2
+       Compiling soroban-sdk-macros v28.0.0
+       Compiling ultrahonk_soroban_verifier v0.1.0
+       Compiling soroban-poseidon v28.0.0
+       Compiling stellar-contract-utils v0.8.0
+       Compiling stellar-access v0.8.0
+       Compiling stellar-confidential v0.8.0
+       Compiling confidential-verifier-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/verifier)
+        Finished `release` profile [optimized] target(s) in 19.46s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_verifier_example.wasm (38999 bytes optimized (original size was 45845 bytes))
+       Wasm Hash: 129a770277b0433bd379ac9d31b4567b1bb24fab365aca9a7a29d72f7535c555
+       Wasm Size: 38999 bytes optimized (original size was 45845 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=auditor/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+       Compiling confidential-auditor-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/auditor)
+        Finished `release` profile [optimized] target(s) in 0.35s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_auditor_example.wasm (19394 bytes optimized (original size was 21863 bytes))
+       Wasm Hash: da7d45793cc2c236a861637d76600bdbdf07cb130a241fe6d689500a3b40e05d
+       Wasm Size: 19394 bytes optimized (original size was 21863 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=compliant-token/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+       Compiling confidential-compliant-token-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/compliant-token)
+        Finished `release` profile [optimized] target(s) in 0.40s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_compliant_token_example.wasm (65986 bytes optimized (original size was 75299 bytes))
+       Wasm Hash: 82c7af03be15cfbc9437cb3d0a2c681ff8b7f098e0f3b02a41a70a25f88c1324
+       Wasm Size: 65986 bytes optimized (original size was 75299 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=allowlist-policy/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+     Downloading crates ...
+      Downloaded stellar-governance v0.8.0
+      Downloaded stellar-tokens v0.8.0
+       Compiling stellar-governance v0.8.0
+       Compiling stellar-tokens v0.8.0
+       Compiling confidential-allowlist-policy-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/allowlist-policy)
+        Finished `release` profile [optimized] target(s) in 2.55s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_allowlist_policy_example.wasm (17003 bytes optimized (original size was 18824 bytes))
+       Wasm Hash: 585bb5423bd4739b9926756fff9fd9290a6e34ce83a23669405a90558b423213
+       Wasm Size: 17003 bytes optimized (original size was 18824 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=factory/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+       Compiling confidential-factory-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/factory)
+        Finished `release` profile [optimized] target(s) in 0.29s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_factory_example.wasm (11458 bytes optimized (original size was 12413 bytes))
+       Wasm Hash: 060b5298d3c23f2f7ae016b307b146119e324dbba28eb4819c7af18981b885c9
+       Wasm Size: 11458 bytes optimized (original size was 12413 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=vanilla-token/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+       Compiling confidential-vanilla-token-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/vanilla-token)
+        Finished `release` profile [optimized] target(s) in 0.33s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_vanilla_token_example.wasm (44277 bytes optimized (original size was 51176 bytes))
+       Wasm Hash: 446cde17e82ef7ff81e8dcd035b3bd3415b1cebcf3e7f229254af848481d8613
+       Wasm Size: 44277 bytes optimized (original size was 51176 bytes)
+    ✅ Build Complete
+
+    ℹ️ CARGO_BUILD_RUSTFLAGS=--remap-path-prefix=/Users/kaankacar/.cargo/registry/src= SOROBAN_SDK_BUILD_SYSTEM_SUPPORTS_SPEC_SHAKING_V2=1 STELLAR_CLI_VERSION=30.0.1 cargo rustc --manifest-path=blocklist-policy/Cargo.toml --crate-type=cdylib --target=wasm32v1-none --release
+       Compiling confidential-blocklist-policy-example v0.1.0 (/private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/blocklist-policy)
+        Finished `release` profile [optimized] target(s) in 0.33s
+    ℹ️ Build Summary:
+       Wasm File: out/confidential_blocklist_policy_example.wasm (17020 bytes optimized (original size was 18841 bytes))
+       Wasm Hash: 426be02a20c19d55cb72319451c38bfa63167e128113b4209a57b3b6a009ee1a
+       Wasm Size: 17020 bytes optimized (original size was 18841 bytes)
+    ✅ Build Complete
+
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_allowlist_policy_example.wasm (   17003 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_auditor_example.wasm (   19394 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_blocklist_policy_example.wasm (   17020 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_compliant_token_example.wasm (   65986 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_factory_example.wasm (   11458 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_vanilla_token_example.wasm (   44277 bytes)
+        wrote /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/out/confidential_verifier_example.wasm (   38999 bytes)
+        refreshed /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo/contracts/factory/testdata
+    Done.
+    bash scripts/build-contracts.sh  43.80s user 25.62s system 96% cpu 1:11.57 total
+
+    ✅ Key saved with alias ctfn-deployer in "/Users/kaankacar/.config/stellar/identity/ctfn-deployer.toml"
+    ✅ Account ctfn-deployer funded on "Test SDF Network ; September 2015"
+2026-11-23T18:02:52Z  deployer ctfn-deployer = GBMFDPQRABGVX65LKUTCQNJWQXGX76RVKORB6R2MXO3DDSNUXDIR52BH
+    41:const DEPLOYER = process.env.DEPLOYER ?? "admin";
+2026-11-23T18:02:53Z  == pnpm deploy:contracts
+
+    > confidential-token-demo@0.1.0 deploy:contracts /private/tmp/claude-501/-Users-kaankacar-usdt0test/bc67988f-ae48-45eb-98ab-b8b5aea88aa3/scratchpad/ct-demo
+    > tsx scripts/deploy.ts
+
+    deployer ctfn-deployer = GBMFDPQRABGVX65LKUTCQNJWQXGX76RVKORB6R2MXO3DDSNUXDIR52BH
+    underlying (native SAC) = CDLZFC3SYJYDZT7K67VZ75HPJVIEUVNIXF47ZG2FB2RMQQVU2HHGCYSC
+    verifier = CAZQI3UKIECWONHSAYQREWQOFBFRW4N6VKGAWL7XL3B7OCDWTBKLQ2HF
+    auditor = CBI77HZ4CZUZDB5AOJYNLH46TJE74LIVXCSSFOO5PIE5IXHACBP4U7LD
+      registered VK register (circuit 0, 1760B)
+      registered VK withdraw (circuit 1, 1760B)
+      registered VK transfer (circuit 2, 1760B)
+      registered VK spender_transfer (circuit 3, 1760B)
+      registered VK set_spender (circuit 4, 1760B)
+      registered VK clawback (circuit 100, 1760B)
+      registered auditor key id 0
+    token = CCVEVX5GVSVHEKVW4LBQITNSMLFD4Z7YTDFDAINZKPKSQ4K26AHXWBAS
+      addr_f parity OK: 0x1928d4f3ff8a6f64bb076bad66f5d816eec59e033925f8daa5464d1f2ed5d648
+    factory = CC3LTF3BVVO35MSUDPIUIEADCAGU7Q6CKDTPUTCVNO2KVE2BBDG4XMSR
+
+    wrote deployments/testnet.json
+    DEPLOYER=ctfn-deployer pnpm deploy:contracts  2.02s user 0.50s system 2% cpu 1:35.24 total
+2026-11-23T18:04:28Z  == done

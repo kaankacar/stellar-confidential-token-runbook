@@ -108,8 +108,8 @@ async function main(): Promise<void> {
   logger.log(`  ${explorerTx(transfer.txHash)}`);
 
   logger.section('the auditor opens the transfer');
-  const secretHex = process.env['AUDITOR_SECRET_HEX'];
-  if (!secretHex) return fail(logger, 'AUDITOR_SECRET_HEX is not set');
+  const secretHex = process.env[dep.name === 'own' ? 'AUDITOR_SECRET_HEX_OWN' : 'AUDITOR_SECRET_HEX'];
+  if (!secretHex) return fail(logger, `${dep.name === 'own' ? 'AUDITOR_SECRET_HEX_OWN' : 'AUDITOR_SECRET_HEX'} is not set`);
   const k = fromHex(secretHex);
   const registered = await client.auditorKey(dep.auditorId);
   const derived = auditorPublicKey(k);
@@ -136,6 +136,7 @@ async function main(): Promise<void> {
   }
 
   logger.section('what each transaction paid for');
+  let restoredTotal = 0;
   for (const [step, tx] of Object.entries(txs)) {
     if (!tx) continue;
     const got = await client.server.getTransaction(tx.hash);
@@ -150,9 +151,14 @@ async function main(): Promise<void> {
     const counts: Record<string, number> = {};
     for (const c of changes) counts[c.switch().name.replace('ledgerEntry', '')] = (counts[c.switch().name.replace('ledgerEntry', '')] ?? 0) + 1;
     const restored = counts['Restored'] ?? 0;
+    restoredTotal += restored;
     logger.log(`${step.padEnd(15)} fee ${xlm(BigInt(tx.feeCharged))} XLM: resource fee ${xlm(BigInt(sorobanData.resourceFee().toString()))} XLM, ${resources.instructions()} instructions, footprint ${footprint.readOnly().length} read-only + ${footprint.readWrite().length} read-write entries, write ${resources.writeBytes()} bytes, ledger entry changes ${JSON.stringify(counts)}${restored ? ` <- ${restored} archived entries restored by this call` : ''}`);
   }
-  logger.log('a month after deployment the verification keys, the auditor key and the token instance had passed their TTL; the first call that touched them (alice register) paid to restore them. Protocol 23 restores archived entries inside the invoking transaction, so the SDK did nothing special and the fee simply arrived in the simulation.');
+  if (restoredTotal > 0) {
+    logger.log(`${restoredTotal} archived entries were restored in this run. The verification keys, the auditor key and the token instance pass their TTL about a month after deployment on testnet; the first call that touches them pays to restore them. Protocol 23 restores archived entries inside the invoking transaction, so the SDK did nothing special and the fee simply arrived in the simulation.`);
+  } else {
+    logger.log('no archived entries were restored in this run: every entry this deployment touches is inside its TTL.');
+  }
 
   logger.section('public balances now');
   logger.log(`alice ${xlm((await xlmBalance(dep, alice)) ?? 0n)} XLM, bob ${xlm((await xlmBalance(dep, bob)) ?? 0n)} XLM on their public accounts; inside the pool alice holds ${xlm(TRANSFER === 0n ? 0n : 1000000000n - TRANSFER)} and bob ${xlm(TRANSFER - WITHDRAW)} XLM, and only they and the auditor know it`);
